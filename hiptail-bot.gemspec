@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = HipTail::Bot::VERSION
   spec.authors       = ["ITO Nobuaki"]
   spec.email         = ["daydream.trippers@gmail.com"]
-  spec.summary       = %q{HipChat Bot Add-on Framework}
-  spec.description   = %q{HipChat Bot Add-on Framework}
+  spec.summary       = %q{HipChat Bot Integration (Add-on) Framework}
+  spec.description   = %q{HipChat Bot Integration (Add-on) Framework}
   spec.homepage      = "https://github.com/dayflower/hiptail-bot"
   spec.license       = "MIT"
 

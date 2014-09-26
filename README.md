@@ -1,6 +1,6 @@
 # HipTail::Bot
 
-HipChat Bot Add-on Framework.
+HipChat Bot Integration (Add-on) Framework.
 
 ## Installation
 
