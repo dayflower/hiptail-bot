@@ -14,8 +14,8 @@ module HipTail
       private
 
       def setup_rack_app
-        config = (@rack_app_config || {}).dup
-        config[:manager] ||= setup_manager()
+        config = (@capability || {}).dup
+        config[:manager] = setup_manager()
 
         HipTail::Web::RackApp.new(config)
       end
@@ -106,9 +106,9 @@ module HipTail
       block.call
     end
 
-    def configure(config)
-      @rack_app_config ||= {}
-      @rack_app_config.merge! config
+    def capability(config)
+      @capability ||= {}
+      @capability.merge! config
     end
 
     def authority_provider(&block)
@@ -172,7 +172,7 @@ module HipTail
 
     self.target = Bot
 
-    delegate :setup, :configure, :authority_provider
+    delegate :setup, :capability, :authority_provider
     delegate :on_installed, :on_uninstalled,
              :on_message, :on_notification, :on_topic,
              :on_room_enter, :on_room_exit
