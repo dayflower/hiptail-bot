@@ -21,7 +21,7 @@ module HipTail
       end
 
       def setup_manager
-        config = (@manager_config || {}).dup
+        config = {}
         config[:authority_provider] ||= setup_authority_provider()
 
         manager = HipTail::Manager.new(config)
@@ -111,11 +111,6 @@ module HipTail
       @rack_app_config.merge! config
     end
 
-    def configure_manager(config)
-      @manager_config ||= {}
-      @manager_config.merge! config
-    end
-
     def authority_provider(&block)
       register_hook(:authority_provider, &block)
     end
@@ -177,7 +172,7 @@ module HipTail
 
     self.target = Bot
 
-    delegate :setup, :configure, :configure_manager, :authority_provider
+    delegate :setup, :configure, :authority_provider
     delegate :on_installed, :on_uninstalled,
              :on_message, :on_notification, :on_topic,
              :on_room_enter, :on_room_exit
