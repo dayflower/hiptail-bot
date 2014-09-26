@@ -14,8 +14,6 @@ module HipTail
       private
 
       def setup_rack_app
-        call_hook(:setup)
-
         config = (@rack_app_config || {}).dup
         config[:manager] ||= setup_manager()
 
@@ -105,7 +103,7 @@ module HipTail
 
   module Bot::DSL
     def setup(&block)
-      register_hook(:setup, &block)
+      block.call
     end
 
     def configure(config)
