@@ -115,6 +115,14 @@ module HipTail
       register_hook(:authority_provider, &block)
     end
 
+    def on_installed(*args, &block)
+      register_hook(:on_installed, *args, &block)
+    end
+
+    def on_uninstalled(*args, &block)
+      register_hook(:on_uninstalled, *args, &block)
+    end
+
     def on_message(*args, &block)
       register_hook(:on_message, *args, &block)
     end
